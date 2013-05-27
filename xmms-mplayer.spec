@@ -1,7 +1,7 @@
 Name:          xmms-mplayer
 Summary:       MPlayer plugin for XMMS
 Version:       0.5
-Release:       4%{?dist}
+Release:       5%{?dist}
 License:       GPL+
 Group:         Applications/Multimedia
 URL:           http://xmmsmplayer.sourceforge.net
@@ -52,6 +52,9 @@ rm -rf %{buildroot}
 %{_libdir}/xmms/Input/libxmmsmplayer.*
 
 %changelog
+* Mon May 27 2013 Nicolas Chauvet <kwizart@gmail.com> - 0.5-5
+- Rebuilt for x264/FFmpeg
+
 * Sun Mar 03 2013 Nicolas Chauvet <kwizart@gmail.com> - 0.5-4
 - Mass rebuilt for Fedora 19 Features
 
