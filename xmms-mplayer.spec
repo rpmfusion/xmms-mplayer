@@ -1,7 +1,7 @@
 Name:          xmms-mplayer
 Summary:       MPlayer plugin for XMMS
 Version:       0.5
-Release:       6%{?dist}
+Release:       7%{?dist}
 License:       GPL+
 Group:         Applications/Multimedia
 URL:           http://xmmsmplayer.sourceforge.net
@@ -28,6 +28,7 @@ cat /dev/null > acinclude.m4
 aclocal
 autoconf
 libtoolize --force
+automake --add-missing
 
 # Check if there's anything new:
 [ -s NEWS ] && exit 1
@@ -52,6 +53,9 @@ rm -rf %{buildroot}
 %{_libdir}/xmms/Input/libxmmsmplayer.*
 
 %changelog
+* Sun May 03 2015 Leigh Scott <leigh123linux@googlemail.com> - 0.5-7
+- Fix F22 FTBFS rhbz#3620
+
 * Sun Aug 31 2014 Sérgio Basto <sergio@serjux.com> - 0.5-6
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
 
