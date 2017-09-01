@@ -1,12 +1,12 @@
 Name:          xmms-mplayer
 Summary:       MPlayer plugin for XMMS
 Version:       0.5
-Release:       9%{?dist}
+Release:       10%{?dist}
 License:       GPL+
 Group:         Applications/Multimedia
 URL:           http://xmmsmplayer.sourceforge.net
 Source:        http://downloads.sourceforge.net/xmmsmplayer/xmmsmplayer-%{version}.tar.gz
-BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+
 BuildRequires: libtool 
 BuildRequires: xmms-devel
 Requires:      mplayer
@@ -30,29 +30,25 @@ autoconf
 libtoolize --force
 automake --add-missing
 
-# Check if there's anything new:
-[ -s NEWS ] && exit 1
-
 %build
 %configure 
-make %{?_smp_mflags}
+%make_build
 
 %install
-rm -rf %{buildroot}
-make install DESTDIR=%{buildroot} INSTALL="install -p"
+%make_install
 
 # Kill .la files
 rm -f %{buildroot}%{_libdir}/xmms/Input/*.la
 
-%clean
-rm -rf %{buildroot}
-
-%files 
-%defattr(-,root,root,-)
-%doc AUTHORS ChangeLog COPYING README
+%files
+%doc AUTHORS ChangeLog README
+%license COPYING
 %{_libdir}/xmms/Input/libxmmsmplayer.*
 
 %changelog
+* Fri Sep 01 2017 Leigh Scott <leigh123linux@googlemail.com> - 0.5-10
+- Fix build issue
+
 * Thu Aug 31 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 0.5-9
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
 
