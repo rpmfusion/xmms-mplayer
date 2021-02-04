@@ -1,7 +1,7 @@
 Name:          xmms-mplayer
 Summary:       MPlayer plugin for XMMS
 Version:       0.5
-Release:       17%{?dist}
+Release:       18%{?dist}
 License:       GPL+
 Group:         Applications/Multimedia
 URL:           http://xmmsmplayer.sourceforge.net
@@ -46,6 +46,9 @@ rm -f %{buildroot}%{_libdir}/xmms/Input/*.la
 %{_libdir}/xmms/Input/libxmmsmplayer.*
 
 %changelog
+* Thu Feb 04 2021 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 0.5-18
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
+
 * Wed Aug 19 2020 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 0.5-17
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
 
